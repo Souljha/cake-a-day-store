@@ -8,21 +8,21 @@ export const MENU_DATA: MenuCategory[] = [
     {
         title: "Signature Cakes",
         items: [
-            { name: "Gold and Black Cake", price: "R500", imageUrl: "/Christmas_01.jpg" },
-            { name: "Vanilla Blue Cake", price: "R450", imageUrl: "/Christmas_02.jpg" },
-            { name: "Pink Cream Cake", price: "R550", imageUrl: "/Christmas_03.jpg" },
-            { name: "Baby Blue Cake", price: "R380", imageUrl: "/Christmas_04.jpg" },
-            { name: "Custom Bible Cake", price: "R500", imageUrl: "/Christmas_05.jpg" },
+            { name: "White Christmas Cake", price: "R500", imageUrl: "/Christmas_01.jpg" },
+            { name: "Father Christmas falling Cake", price: "R450", imageUrl: "/Christmas_02.jpg" },
+            { name: "Upside down Cake", price: "R550", imageUrl: "/Christmas_03.jpg" },
+            { name: "Christmas Red Cake", price: "R380", imageUrl: "/Christmas_04.jpg" },
+            { name: "Christmas tree Cake", price: "R500", imageUrl: "/Christmas_05.jpg" },
             { name: "Christmas Fruit Cake", price: "R350", imageUrl: "/christmas cakes.jpg" },
-            { name: "Wedding Cakes", price: "R600", imageUrl: "/Christmas cake tree_01.jpg" },
-            { name: "Custom Numbers Cake", price: "R450", imageUrl: "/Christmas cake tree_02.jpg" },
-            { name: "Flower Cakes", price: "R400", imageUrl: "/Halloween.jpg" },
+            { name: "Custom Red Cakes", price: "R600", imageUrl: "/Christmas cake tree_01.jpg" },
+            { name: "Custom Green Tree Cake", price: "R450", imageUrl: "/Christmas cake tree_02.jpg" },
+            { name: "Halloween Cakes", price: "R400", imageUrl: "/Halloween.jpg" },
         ]
     },
     {
         title: "Cupcakes",
         items: [
-            { name: "Vanilla / Chocolate Cupcakes", price: "R90/doz", imageUrl: "/Christmas cupcakes.jpg" },
+            { name: "Christmas Cupcakes", price: "R90/doz", imageUrl: "/Christmas cupcakes.jpg" },
             { name: "Raspberry Cupcakes", price: "R90/doz", imageUrl: "/Raspberry cupcakes.jpeg" },
             { name: "Chocolate Cake / Cupcakes", price: "R350", imageUrl: "/Chocolate cupcakes.jpg" },
             { name: "Strawberry Cupcakes", price: "R90/doz", imageUrl: "/Strawberry cupcakes.jpeg" },
