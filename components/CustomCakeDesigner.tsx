@@ -75,7 +75,7 @@ const CustomCakeDesigner: React.FC<CustomCakeDesignerProps> = ({ onAddToCart }) 
     // Check rate limit before proceeding
     const { allowed, remainingUses } = checkRateLimit();
     if (!allowed) {
-      setError(`Daily limit reached! You can generate ${DAILY_LIMIT} cakes per day. Try again tomorrow or call us at +27 68 300 7158 for custom orders.`);
+      setError(`Daily limit reached! You can generate ${DAILY_LIMIT} cakes per day. Try again tomorrow or call us at +27 73 599 9972 for custom orders.`);
       return;
     }
 

@@ -133,7 +133,7 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, items, onCheckoutSuccess
       setIsProcessing(false);
 
       // Show error message or fallback to phone order
-      alert('Payment system temporarily unavailable. Please call us to complete your order: +27 68 300 7158');
+      alert('Payment system temporarily unavailable. Please call us to complete your order: +27 73 599 9972');
     }
   };
 
@@ -171,7 +171,7 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, items, onCheckoutSuccess
     } catch (error) {
       console.error('Order creation error:', error);
       setIsProcessing(false);
-      alert('Order creation failed. Please call us directly: +27 68 300 7158');
+      alert('Order creation failed. Please call us directly: +27 73 599 9972');
     }
   };
 
