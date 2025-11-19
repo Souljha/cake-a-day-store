@@ -55,7 +55,7 @@ const Footer: React.FC<FooterProps> = ({ onAdminAccess }) => {
                             </ul>
                         </div>
                         <div>
-                            <h4 className="font-semibold text-lg mb-2">Visit Us</h4>
+                            <h4 className="font-semibold text-lg mb-2">Collections at:</h4>
                             <p className="text-gray-400">{ADDRESS}</p>
                         </div>
                     </div>

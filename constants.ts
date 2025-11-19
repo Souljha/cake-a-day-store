@@ -1,8 +1,8 @@
 
 import { MenuCategory } from './types';
 
-export const PHONE_NUMBER = "+27 68 300 7158";
-export const ADDRESS = "508 Sarnia Road, Seaview, Durban, South Africa";
+export const PHONE_NUMBER = "+27 73 599 9972";
+export const ADDRESS = "55 Strathlyn Avenue, Seaview, Durban, 4094";
 
 export const MENU_DATA: MenuCategory[] = [
     {
