@@ -14,7 +14,7 @@ export const MENU_DATA: MenuCategory[] = [
             { name: "Christmas Red Cake", price: "R380", imageUrl: "/Christmas_04.jpg" },
             { name: "Christmas tree Cake", price: "R500", imageUrl: "/Christmas_05.jpg" },
             { name: "Christmas Fruit Cake", price: "R350", imageUrl: "/christmas cakes.jpg" },
-            { name: "Custom Red Cakes", price: "R600", imageUrl: "/Christmas cake tree_01.jpg" },
+            { name: "Christmas Slice Cakes", price: "R60", imageUrl: "/Christmas cake tree_01.jpg" },
             { name: "Custom Christmas Cakes", price: "R450", imageUrl: "/christmas deco.jpg" },
             { name: "Halloween Cakes", price: "R400", imageUrl: "/Halloween.jpg" },
         ]
