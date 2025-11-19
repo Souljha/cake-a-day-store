@@ -25,7 +25,7 @@ export const MENU_DATA: MenuCategory[] = [
             { name: "Christmas Cupcakes", price: "R90/doz", imageUrl: "/Christmas cupcakes.jpg" },
             { name: "Raspberry Compote", price: "R120/doz", imageUrl: "/Raspberry cupcakes.jpeg" },
             { name: "Chocolate Cake / Cupcakes", price: "R350", imageUrl: "/Chocolate cupcakes.jpg" },
-            { name: "Strawberry Cupcakes", price: "R90/doz", imageUrl: "/Strawberry cupcakes.jpeg" },
+            { name: "Strawberry Compote", price: "R120/doz", imageUrl: "/Strawberry cupcakes.jpeg" },
             { name: "Blueberry Cupcakes", price: "R90/doz", imageUrl: "/blueberry-cupcakes.jpg" },
             { name: "Mixed Cupcakes", price: "R90/doz", imageUrl: "/mixed cupcakes.jpg" },
         ]
