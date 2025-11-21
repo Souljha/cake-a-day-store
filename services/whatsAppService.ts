@@ -1,6 +1,6 @@
 import { PastOrder } from '../types';
 
-const WHATSAPP_BUSINESS_NUMBER = '+27683007158';
+const WHATSAPP_BUSINESS_NUMBER = '+27735999972';
 
 // Format order details for WhatsApp message
 const formatOrderForWhatsApp = (order: PastOrder): string => {
