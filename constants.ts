@@ -13,7 +13,7 @@ export const MENU_DATA: MenuCategory[] = [
             { name: "Upside down Cake", price: "R550", imageUrl: "/Christmas_03.jpg" },
             { name: "Christmas Red Cake", price: "R380", imageUrl: "/Christmas_04.jpg" },
             { name: "Christmas tree Cake", price: "R500", imageUrl: "/Christmas_05.jpg" },
-            { name: "Christmas Fruit Cake", price: "R350", imageUrl: "/christmas cakes.jpg" },
+            { name: "Ice Cream Cake", price: "R500", imageUrl: "/Biscuit Cake.jpg" },
             { name: "Christmas Slice Cakes", price: "R60", imageUrl: "/Christmas cake tree_01.jpg" },
             { name: "Custom Christmas Cakes", price: "R450", imageUrl: "/christmas deco.jpg" },
             { name: "Halloween Cakes", price: "R400", imageUrl: "/Halloween.jpg" },
@@ -33,9 +33,9 @@ export const MENU_DATA: MenuCategory[] = [
     {
         title: "Tarts & Pies",
         items: [
-            { name: "Mixed Fruit Tart", price: "R100", imageUrl: "/mixed fruit.png" },
+            { name: "DIY cookie decorating kit", price: "R60", imageUrl: "/Biscuit cut outs.jpg" },
             { name: "Mini Caramel Tart", price: "R120/doz", imageUrl: "/Mini caramel tarts.jpeg" },
-            { name: "Cheese Tart", price: "R150", imageUrl: "/Cheesecake.jpeg" },
+            { name: "Cake pops 10 for:", price: "R120", imageUrl: "/Stick Sweet.jpg" },
             { name: "Banana Cream Pie", price: "R120/large", imageUrl: "/Banana cream pie.jpeg" },
             { name: "Mini Lemon Meringue Tart", price: "R120/doz", imageUrl: "/Lemon meringue tarts.jpeg" },
             { name: "Medovik", price: "R250", imageUrl: "/Honey pie.jpeg" },
@@ -60,7 +60,7 @@ export const MENU_DATA: MenuCategory[] = [
             { name: "Blueberry Muffins", price: "R120/doz", imageUrl: "/Blueberry muffins.JPG" },
             { name: "Burger Scones", price: "R120/doz", imageUrl: "/Burger scones.jpeg" },
             { name: "Biscuits", price: "R100", imageUrl: "/Biscuits.JPG" },
-            { name: "Donuts", price: "R90/doz", imageUrl: "/white donuts.jpg" },
+            { name: "Donuts", price: "R90/doz", imageUrl: "/Donuts.jpg" },
         ]
     }
 ];
