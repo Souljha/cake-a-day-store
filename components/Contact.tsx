@@ -23,7 +23,7 @@ const Contact: React.FC = () => {
                                 <div>
                                     <h4 className="text-lg font-semibold text-gray-700">Order by Phone</h4>
                                     <a href={`tel:${PHONE_NUMBER}`} className="text-2xl text-pink-600 font-bold hover:underline">{PHONE_NUMBER}</a>
-                                    <p className="text-gray-500">Call us for same-day delivery (orders before 10 AM).</p>
+                                    <p className="text-gray-500">To ensure freshness, please order 5 days in advance.</p>
                                 </div>
                             </div>
                             <div className="flex items-start space-x-4">
@@ -33,7 +33,7 @@ const Contact: React.FC = () => {
                                 <div>
                                     <h4 className="text-lg font-semibold text-gray-700">Cake a Day Online Store</h4>
                                     <p className="text-lg text-gray-600">Order online for delivery across Durban</p>
-                                    <p className="text-gray-500">Same-day delivery available for orders before 10 AM.</p>
+                                    <p className="text-gray-500">To ensure freshness, please order 5 days in advance.</p>
                                 </div>
                             </div>
                         </div>
