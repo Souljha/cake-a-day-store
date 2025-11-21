@@ -232,7 +232,7 @@ interface MenuCategoryProps {
 }
 
 const MenuCategory: React.FC<MenuCategoryProps> = ({ category, onAddToCart }) => {
-  const [expandedCategory, setExpandedCategory] = useState<string | null>("Cakes");
+  const [expandedCategory, setExpandedCategory] = useState<string | null>(null);
   const isSignatureCakes = category.title === "Signature Cakes";
 
   const toggleCategory = (categoryName: string) => {
@@ -242,7 +242,7 @@ const MenuCategory: React.FC<MenuCategoryProps> = ({ category, onAddToCart }) =>
   if (isSignatureCakes) {
     return (
       <div className="mb-12">
-        <div className="flex flex-col lg:flex-row gap-8">
+        <div className="flex flex-col-reverse lg:flex-row gap-8">
           {/* Latest Creations Sidebar */}
           <div className="lg:w-64">
             <h3 className="text-4xl font-bold text-gray-800 mb-8">Latest Creations</h3>
