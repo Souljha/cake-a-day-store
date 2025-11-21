@@ -55,8 +55,8 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, items, onCheckoutSuccess
   };
 
   const subtotal = items.reduce((acc, item) => acc + getPriceAsNumber(item.price) * item.quantity, 0);
-  const baseDeliveryFee = 80.00;
-  const freeDeliveryThreshold = 500.00;
+  const baseDeliveryFee = 150.00;
+  const freeDeliveryThreshold = 800.00;
   const deliveryFee = subtotal >= freeDeliveryThreshold ? 0.00 : baseDeliveryFee;
   const total = subtotal + deliveryFee;
   
