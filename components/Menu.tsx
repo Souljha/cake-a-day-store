@@ -232,81 +232,7 @@ interface MenuCategoryProps {
 }
 
 const MenuCategory: React.FC<MenuCategoryProps> = ({ category, onAddToCart }) => {
-  const [expandedCategory, setExpandedCategory] = useState<string | null>(null);
-  const isSignatureCakes = category.title === "Signature Cakes";
-
-  const toggleCategory = (categoryName: string) => {
-    setExpandedCategory(prev => prev === categoryName ? null : categoryName);
-  };
-
-  if (isSignatureCakes) {
-    return (
-      <div className="mb-12">
-        <div className="flex flex-col-reverse lg:flex-row gap-8">
-          {/* Latest Creations Sidebar */}
-          <div className="lg:w-64">
-            <h3 className="text-4xl font-bold text-gray-800 mb-8">Latest Creations</h3>
-            <div className="bg-white rounded-xl shadow-lg p-6">
-              <div className="space-y-2">
-                {SIDEBAR_CATEGORIES.map((sidebarCategory) => (
-                  <div key={sidebarCategory.name} className="border-b border-gray-200 last:border-b-0">
-                    <button
-                      onClick={() => toggleCategory(sidebarCategory.name)}
-                      className="w-full flex items-center justify-between py-3 text-left hover:text-pink-600 transition-colors"
-                    >
-                      <span className="font-semibold text-gray-800">{sidebarCategory.name}</span>
-                      <svg
-                        className={`w-5 h-5 transition-transform duration-200 ${
-                          expandedCategory === sidebarCategory.name ? 'rotate-90' : ''
-                        }`}
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
-                      </svg>
-                    </button>
-
-                    {expandedCategory === sidebarCategory.name && sidebarCategory.items && (
-                      <div className="pl-4 pb-3 space-y-2">
-                        {sidebarCategory.items.map((item) => (
-                          <button
-                            key={item.label}
-                            onClick={() => onAddToCart({
-                              name: `${sidebarCategory.name} - ${item.label}`,
-                              price: item.price,
-                              quantity: 1
-                            })}
-                            className="w-full flex justify-between text-sm py-1 px-2 rounded hover:bg-pink-50 transition-colors duration-200 cursor-pointer group"
-                            title="Click to add to cart"
-                          >
-                            <span className="text-gray-700 group-hover:text-pink-600">{item.label}:</span>
-                            <span className="text-pink-600 font-semibold group-hover:text-pink-700">{item.price}</span>
-                          </button>
-                        ))}
-                      </div>
-                    )}
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-
-          {/* Signature Cakes Grid */}
-          <div className="flex-1">
-            <h3 className="text-4xl font-bold text-gray-800 mb-8">{category.title}</h3>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {category.items.map((item) => (
-                <MenuItem key={item.name} item={item} onAddToCart={onAddToCart} />
-              ))}
-            </div>
-          </div>
-        </div>
-      </div>
-    );
-  }
-
-  // Default layout for other categories
+  // Default layout for all categories
   return (
     <div className="mb-12">
       <h3 className="text-4xl font-bold text-gray-800 mb-8 text-center">{category.title}</h3>
@@ -314,6 +240,70 @@ const MenuCategory: React.FC<MenuCategoryProps> = ({ category, onAddToCart }) =>
         {category.items.map((item) => (
           <MenuItem key={item.name} item={item} onAddToCart={onAddToCart} />
         ))}
+      </div>
+    </div>
+  );
+};
+
+interface LatestCreationsProps {
+  onAddToCart: (item: OrderItem) => void;
+}
+
+const LatestCreations: React.FC<LatestCreationsProps> = ({ onAddToCart }) => {
+  const [expandedCategory, setExpandedCategory] = useState<string | null>(null);
+
+  const toggleCategory = (categoryName: string) => {
+    setExpandedCategory(prev => prev === categoryName ? null : categoryName);
+  };
+
+  return (
+    <div className="mb-12">
+      <h3 className="text-4xl font-bold text-gray-800 mb-8 text-center">Latest Creations</h3>
+      <div className="max-w-2xl mx-auto">
+        <div className="bg-white rounded-xl shadow-lg p-6">
+          <div className="space-y-2">
+            {SIDEBAR_CATEGORIES.map((sidebarCategory) => (
+              <div key={sidebarCategory.name} className="border-b border-gray-200 last:border-b-0">
+                <button
+                  onClick={() => toggleCategory(sidebarCategory.name)}
+                  className="w-full flex items-center justify-between py-3 text-left hover:text-pink-600 transition-colors"
+                >
+                  <span className="font-semibold text-gray-800">{sidebarCategory.name}</span>
+                  <svg
+                    className={`w-5 h-5 transition-transform duration-200 ${
+                      expandedCategory === sidebarCategory.name ? 'rotate-90' : ''
+                    }`}
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
+                  </svg>
+                </button>
+
+                {expandedCategory === sidebarCategory.name && sidebarCategory.items && (
+                  <div className="pl-4 pb-3 space-y-2">
+                    {sidebarCategory.items.map((item) => (
+                      <button
+                        key={item.label}
+                        onClick={() => onAddToCart({
+                          name: `${sidebarCategory.name} - ${item.label}`,
+                          price: item.price,
+                          quantity: 1
+                        })}
+                        className="w-full flex justify-between text-sm py-1 px-2 rounded hover:bg-pink-50 transition-colors duration-200 cursor-pointer group"
+                        title="Click to add to cart"
+                      >
+                        <span className="text-gray-700 group-hover:text-pink-600">{item.label}:</span>
+                        <span className="text-pink-600 font-semibold group-hover:text-pink-700">{item.price}</span>
+                      </button>
+                    ))}
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     </div>
   );
@@ -367,9 +357,15 @@ const Menu: React.FC<MenuProps> = ({ onAddToCart }) => {
         </div>
 
         {totalItemsFound > 0 ? (
-          filteredMenu.map((category) => (
-            <MenuCategory key={category.title} category={category} onAddToCart={onAddToCart} />
-          ))
+          <>
+            {filteredMenu.map((category, index) => (
+              <React.Fragment key={category.title}>
+                <MenuCategory category={category} onAddToCart={onAddToCart} />
+                {/* Insert Latest Creations after Scones & Muffins */}
+                {category.title === "Scones & Muffins" && <LatestCreations onAddToCart={onAddToCart} />}
+              </React.Fragment>
+            ))}
+          </>
         ) : (
           <div className="text-center py-12">
             <h3 className="text-2xl font-semibold text-gray-700">No Treats Found</h3>
