@@ -60,12 +60,12 @@ const SIDEBAR_CATEGORIES: SidebarCategory[] = [
     {
         name: "Sweeties",
         items: [
-            { label: "custard pastry", price: "R120(12)" },
-            { label: "*eclairs", price: "R120(12)" },
-            { label: "*homies", price: "R120(12)" },
-            { label: "apple pastry", price: "R90(12)" },
-            { label: "date rolls", price: "R60(12)" },
-            { label: "brownies", price: "R90(12)" },
+            { label: "custard pastry", price: "R120(10)" },
+            { label: "*eclairs", price: "R120(10)" },
+            { label: "*homies", price: "R120(10)" },
+            { label: "apple pastry", price: "R120(12)" },
+            { label: "date rolls", price: "R90(12)" },
+            { label: "brownies", price: "R120(12)" },
         ]
     },
     {
@@ -82,9 +82,9 @@ const SIDEBAR_CATEGORIES: SidebarCategory[] = [
         name: "Loaves",
         items: [
             { label: "lamingtons", price: "R120(9)" },
-            { label: "banana/carrot loaf", price: "R45" },
-            { label: "madeira loaf", price: "R45" },
-            { label: "lemon/orange loaf", price: "R45" },
+            { label: "banana/carrot loaf", price: "R60" },
+            { label: "madeira loaf", price: "R60" },
+            { label: "lemon/orange loaf", price: "R60" },
             { label: "scones (plain)", price: "R60(12)" },
             { label: "scones (raisins)", price: "R72(12)" },
         ]
