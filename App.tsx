@@ -9,8 +9,6 @@ import Footer from './components/Footer';
 import Modal from './components/Modal';
 import OrderHistory from './components/OrderHistory';
 import AdminDashboard from './components/AdminDashboard';
-import Snowfall from './components/Snowfall';
-import ChristmasDecorations from './components/ChristmasDecorations';
 import { OrderItem } from './types';
 
 const App: React.FC = () => {
@@ -184,10 +182,6 @@ const App: React.FC = () => {
             {isAdminDashboardOpen && (
                 <AdminDashboard onClose={() => setIsAdminDashboardOpen(false)} />
             )}
-
-            {/* Christmas Theme */}
-            <Snowfall />
-            <ChristmasDecorations />
         </div>
     );
 };

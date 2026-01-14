@@ -8,21 +8,13 @@ export const MENU_DATA: MenuCategory[] = [
     {
         title: "Signature Cakes",
         items: [
-            { name: "White Christmas Cake", price: "R500", imageUrl: "/Christmas_01.jpg" },
-            { name: "Father Christmas falling Cake", price: "R450/ 15cm", imageUrl: "/Christmas_02.jpg" },
-            { name: "Upside down Cake", price: "R550", imageUrl: "/Christmas_03.jpg" },
-            { name: "Christmas Red Cake", price: "R380", imageUrl: "/Christmas_04.jpg" },
-            { name: "Christmas tree Cake", price: "R500", imageUrl: "/Christmas_05.jpg" },
             { name: "Ice Cream Cake", price: "R500", imageUrl: "/Biscuit Cake.jpg" },
-            { name: "Christmas Slice Cakes", price: "R60", imageUrl: "/Christmas cake tree_01.jpg" },
-            { name: "Custom Christmas Cakes", price: "R450/ 15cm", imageUrl: "/christmas deco.jpg" },
             { name: "Halloween Cakes", price: "R400/ 15cm", imageUrl: "/Halloween.jpg" },
         ]
     },
     {
         title: "Cupcakes",
         items: [
-            { name: "Christmas Cupcakes", price: "R90/10", imageUrl: "/Christmas cupcakes.jpg" },
             { name: "Raspberry Compote", price: "R120/doz", imageUrl: "/Raspberry cupcakes.jpeg" },
             { name: "Chocolate Cake / Cupcakes", price: "R350", imageUrl: "/Chocolate cupcakes.jpg" },
             { name: "Strawberry Compote", price: "R120/doz", imageUrl: "/Strawberry cupcakes.jpeg" },
