@@ -2,6 +2,7 @@
 export interface MenuItem {
   name: string;
   price: string;
+  originalPrice?: string; // For showing strikethrough on special promotions
   description?: string;
   imageUrl: string;
 }

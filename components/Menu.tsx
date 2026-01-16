@@ -191,17 +191,35 @@ const MenuItem: React.FC<MenuItemProps> = ({ item, onAddToCart }) => {
   };
   
   return (
-    <div className="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300 flex flex-col overflow-hidden">
-      <img src={item.imageUrl} alt={item.name} className="w-full h-48 object-cover" />
+    <div className={`bg-white rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300 flex flex-col overflow-hidden relative ${item.originalPrice ? 'ring-2 ring-red-200' : ''}`}>
+      {/* Valentine Special Badge */}
+      {item.originalPrice && (
+        <div className="heart-corner">
+          <span className="text-white text-sm">&#10084;</span>
+        </div>
+      )}
+      <div className="relative">
+        <img src={item.imageUrl} alt={item.name} className="w-full h-48 object-cover" />
+        {item.originalPrice && (
+          <div className="absolute top-2 left-2 valentine-badge text-white text-xs font-bold px-2 py-1 rounded-full">
+            Valentine Special
+          </div>
+        )}
+      </div>
       <div className="p-6 flex flex-col flex-grow">
         <div className="flex-grow">
             <h4 className="text-xl font-semibold text-gray-800">{item.name}</h4>
-            <p className="text-pink-600 font-bold mt-1 text-lg">{item.price}</p>
+            <div className="mt-1">
+              {item.originalPrice && (
+                <span className="text-gray-400 line-through mr-2 text-base">{item.originalPrice}</span>
+              )}
+              <span className={`font-bold text-lg ${item.originalPrice ? 'text-red-600' : 'text-pink-600'}`}>{item.price}</span>
+            </div>
         </div>
         <div className="mt-4 flex items-center justify-between">
             <div className="flex items-center space-x-2">
-                <button 
-                    onClick={() => handleQuantityChange(-1)} 
+                <button
+                    onClick={() => handleQuantityChange(-1)}
                     className="bg-gray-200 text-gray-700 w-8 h-8 rounded-full font-bold hover:bg-gray-300 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                     aria-label="Decrease quantity"
                     disabled={quantity <= 1}
@@ -209,15 +227,15 @@ const MenuItem: React.FC<MenuItemProps> = ({ item, onAddToCart }) => {
                     -
                 </button>
                 <span className="font-semibold text-lg w-8 text-center" aria-live="polite">{quantity}</span>
-                <button 
-                    onClick={() => handleQuantityChange(1)} 
+                <button
+                    onClick={() => handleQuantityChange(1)}
                     className="bg-gray-200 text-gray-700 w-8 h-8 rounded-full font-bold hover:bg-gray-300 transition-colors"
                     aria-label="Increase quantity"
                 >
                     +
                 </button>
             </div>
-            <button onClick={() => onAddToCart({ name: item.name, price: item.price, quantity })} className="bg-pink-600 text-white px-4 py-2 rounded-full font-semibold hover:bg-pink-700 transition-colors duration-300">
+            <button onClick={() => onAddToCart({ name: item.name, price: item.price, quantity })} className={`${item.originalPrice ? 'bg-red-600 hover:bg-red-700' : 'bg-pink-600 hover:bg-pink-700'} text-white px-4 py-2 rounded-full font-semibold transition-colors duration-300`}>
                 Add
             </button>
         </div>

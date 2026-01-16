@@ -33,8 +33,8 @@ const Header: React.FC<HeaderProps> = ({ onNavigate, cartItemCount, onCartClick,
                 </nav>
 
                 <div className="flex items-center space-x-2 md:space-x-4">
-                    <a href={`tel:${PHONE_NUMBER}`} className="hidden md:inline-block bg-pink-600 text-white px-6 py-2 rounded-full font-semibold hover:bg-pink-700 transition-transform duration-300 hover:scale-105">
-                        Order Now
+                    <a href={`tel:${PHONE_NUMBER}`} className="hidden md:inline-block bg-red-600 text-white px-6 py-2 rounded-full font-semibold hover:bg-red-700 transition-transform duration-300 hover:scale-105 valentine-cta">
+                        <span className="mr-1">&#10084;</span> Order Now
                     </a>
                     <button onClick={onCartClick} className="relative text-gray-600 hover:text-pink-600 transition-colors duration-300 p-2" aria-label={`View cart with ${cartItemCount} items`}>
                         <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
@@ -71,8 +71,8 @@ const Header: React.FC<HeaderProps> = ({ onNavigate, cartItemCount, onCartClick,
                     <button onClick={() => handleMobileNavAction(() => onNavigate('designer'))} className="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-pink-600 hover:bg-pink-50">Design a Cake</button>
                     <button onClick={() => handleMobileNavAction(onHistoryClick)} className="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-pink-600 hover:bg-pink-50">Order History</button>
                     <button onClick={() => handleMobileNavAction(() => onNavigate('contact'))} className="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-pink-600 hover:bg-pink-50">Contact</button>
-                    <a href={`tel:${PHONE_NUMBER}`} className="block w-full text-center mt-2 bg-pink-600 text-white px-6 py-3 rounded-full font-semibold hover:bg-pink-700 transition-transform duration-300 hover:scale-105">
-                        Order Now
+                    <a href={`tel:${PHONE_NUMBER}`} className="block w-full text-center mt-2 bg-red-600 text-white px-6 py-3 rounded-full font-semibold hover:bg-red-700 transition-transform duration-300 hover:scale-105 valentine-cta">
+                        <span className="mr-1">&#10084;</span> Order Now
                     </a>
                 </nav>
             </div>

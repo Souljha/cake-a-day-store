@@ -9,7 +9,24 @@ import Footer from './components/Footer';
 import Modal from './components/Modal';
 import OrderHistory from './components/OrderHistory';
 import AdminDashboard from './components/AdminDashboard';
+import ValentineBanner from './components/ValentineBanner';
 import { OrderItem } from './types';
+
+// Floating Hearts Component for Valentine theme
+const FloatingHearts: React.FC = () => {
+    const hearts = ['&#10084;', '&#10083;', '&#10084;', '&#10083;', '&#10084;', '&#10083;', '&#10084;', '&#10083;', '&#10084;', '&#10083;'];
+    return (
+        <>
+            {hearts.map((_, index) => (
+                <div
+                    key={index}
+                    className="floating-heart text-red-400"
+                    dangerouslySetInnerHTML={{ __html: index % 2 === 0 ? '&#10084;' : '&#10083;' }}
+                />
+            ))}
+        </>
+    );
+};
 
 const App: React.FC = () => {
     const [isCheckoutModalOpen, setIsCheckoutModalOpen] = useState(false);
@@ -95,8 +112,12 @@ const App: React.FC = () => {
 
     return (
         <div className="bg-white">
-            <Header 
-                onNavigate={handleNavigate} 
+            {/* Valentine Theme Elements */}
+            <FloatingHearts />
+            <ValentineBanner />
+
+            <Header
+                onNavigate={handleNavigate}
                 cartItemCount={cartItemCount}
                 onCartClick={() => setIsCheckoutModalOpen(true)}
                 onHistoryClick={() => setIsHistoryModalOpen(true)}
