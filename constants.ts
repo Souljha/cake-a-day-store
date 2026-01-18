@@ -58,9 +58,9 @@ export const MENU_DATA: MenuCategory[] = [
             { name: "Mini Iced Donuts_B", price: "R90/doz", originalPrice: "R120/doz", imageUrl: "/Mini Iced Donuts_B.jpeg" },
             { name: "More Iced Donuts", price: "R120/(9)lrg", originalPrice: "R180/(9)lrg", imageUrl: "/More Iced Donuts.jpeg" },
             { name: "Red Iced Cookies", price: "R120/doz", originalPrice: "R180/doz", imageUrl: "/Red Iced Cookies.jpeg" },
-            { name: "Burger Scones", price: "R120/doz", originalPrice: "R180/doz", imageUrl: "/Burger scones.jpeg" },
-            { name: "Biscuits", price: "R100", originalPrice: "R150", imageUrl: "/Biscuits.JPG" },
-            { name: "Donuts", price: "R90/9", originalPrice: "R120/9", imageUrl: "/Donuts.jpg" },
+            { name: "Single Brownie", price: "R20", originalPrice: "R30", imageUrl: "/Single Brownie.jpeg" },
+            { name: "DIY Biscuits", price: "R60", originalPrice: "R90", imageUrl: "/DIY Biscuit.jpeg" },
+            { name: "Cakesickle Set", price: "R90", originalPrice: "R120", imageUrl: "/Cakesickle set.jpeg" },
         ]
     }
 ];
