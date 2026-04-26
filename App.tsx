@@ -9,24 +9,9 @@ import Footer from './components/Footer';
 import Modal from './components/Modal';
 import OrderHistory from './components/OrderHistory';
 import AdminDashboard from './components/AdminDashboard';
-import ValentineBanner from './components/ValentineBanner';
-import { OrderItem } from './types';
-
-// Floating Hearts Component for Valentine theme
-const FloatingHearts: React.FC = () => {
-    const hearts = ['&#10084;', '&#10083;', '&#10084;', '&#10083;', '&#10084;', '&#10083;', '&#10084;', '&#10083;', '&#10084;', '&#10083;'];
-    return (
-        <>
-            {hearts.map((_, index) => (
-                <div
-                    key={index}
-                    className="floating-heart text-red-400"
-                    dangerouslySetInnerHTML={{ __html: index % 2 === 0 ? '&#10084;' : '&#10083;' }}
-                />
-            ))}
-        </>
-    );
-};
+import { OrderItem, MenuCategory } from './types';
+import { MENU_DATA } from './constants';
+import { getMenuCategories } from './services/menuService';
 
 const App: React.FC = () => {
     const [isCheckoutModalOpen, setIsCheckoutModalOpen] = useState(false);
@@ -34,6 +19,12 @@ const App: React.FC = () => {
     const [isAdminDashboardOpen, setIsAdminDashboardOpen] = useState(false);
     const [cartItems, setCartItems] = useState<OrderItem[]>([]);
     const [paymentStatus, setPaymentStatus] = useState<'success' | 'cancelled' | null>(null);
+    const [menuData, setMenuData] = useState<MenuCategory[]>(MENU_DATA);
+
+    // Load menu from Firebase on startup
+    useEffect(() => {
+        getMenuCategories().then(setMenuData);
+    }, []);
 
     const menuRef = useRef<HTMLDivElement>(null);
     const designerRef = useRef<HTMLDivElement>(null);
@@ -112,10 +103,6 @@ const App: React.FC = () => {
 
     return (
         <div className="bg-white">
-            {/* Valentine Theme Elements */}
-            <FloatingHearts />
-            <ValentineBanner />
-
             <Header
                 onNavigate={handleNavigate}
                 cartItemCount={cartItemCount}
@@ -125,7 +112,7 @@ const App: React.FC = () => {
             <main>
                 <Hero onCTAClick={() => handleNavigate('designer')} />
                 <div ref={menuRef}>
-                    <Menu onAddToCart={handleAddToCart} />
+                    <Menu onAddToCart={handleAddToCart} menuData={menuData} />
                 </div>
                 <div ref={designerRef}>
                     <CustomCakeDesigner onAddToCart={handleAddToCart} />
@@ -201,7 +188,10 @@ const App: React.FC = () => {
 
             {/* Admin Dashboard */}
             {isAdminDashboardOpen && (
-                <AdminDashboard onClose={() => setIsAdminDashboardOpen(false)} />
+                <AdminDashboard
+                    onClose={() => setIsAdminDashboardOpen(false)}
+                    onMenuUpdated={setMenuData}
+                />
             )}
         </div>
     );

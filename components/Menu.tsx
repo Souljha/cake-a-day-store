@@ -1,7 +1,6 @@
 
 import React, { useState, useMemo } from 'react';
 import { MenuCategory as MenuCategoryType, MenuItem as MenuItemType, OrderItem } from '../types';
-import { MENU_DATA } from '../constants';
 
 interface PricingOption {
     label: string;
@@ -191,29 +190,15 @@ const MenuItem: React.FC<MenuItemProps> = ({ item, onAddToCart }) => {
   };
   
   return (
-    <div className={`bg-white rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300 flex flex-col overflow-hidden relative ${item.originalPrice ? 'ring-2 ring-red-200' : ''}`}>
-      {/* Valentine Special Badge */}
-      {item.originalPrice && (
-        <div className="heart-corner">
-          <span className="text-white text-sm">&#10084;</span>
-        </div>
-      )}
+    <div className="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300 flex flex-col overflow-hidden relative">
       <div className="relative">
         <img src={item.imageUrl} alt={item.name} className="w-full h-48 object-cover" />
-        {item.originalPrice && (
-          <div className="absolute top-2 left-2 valentine-badge text-white text-xs font-bold px-2 py-1 rounded-full">
-            Valentine Special
-          </div>
-        )}
       </div>
       <div className="p-6 flex flex-col flex-grow">
         <div className="flex-grow">
             <h4 className="text-xl font-semibold text-gray-800">{item.name}</h4>
             <div className="mt-1">
-              {item.originalPrice && (
-                <span className="text-gray-400 line-through mr-2 text-base">{item.originalPrice}</span>
-              )}
-              <span className={`font-bold text-lg ${item.originalPrice ? 'text-red-600' : 'text-pink-600'}`}>{item.price}</span>
+              <span className="font-bold text-lg text-pink-600">{item.price}</span>
             </div>
         </div>
         <div className="mt-4 flex items-center justify-between">
@@ -235,7 +220,7 @@ const MenuItem: React.FC<MenuItemProps> = ({ item, onAddToCart }) => {
                     +
                 </button>
             </div>
-            <button onClick={() => onAddToCart({ name: item.name, price: item.price, quantity })} className={`${item.originalPrice ? 'bg-red-600 hover:bg-red-700' : 'bg-pink-600 hover:bg-pink-700'} text-white px-4 py-2 rounded-full font-semibold transition-colors duration-300`}>
+            <button onClick={() => onAddToCart({ name: item.name, price: item.price, quantity })} className="bg-pink-600 hover:bg-pink-700 text-white px-4 py-2 rounded-full font-semibold transition-colors duration-300">
                 Add
             </button>
         </div>
@@ -329,19 +314,20 @@ const LatestCreations: React.FC<LatestCreationsProps> = ({ onAddToCart }) => {
 
 interface MenuProps {
   onAddToCart: (item: OrderItem) => void;
+  menuData: MenuCategoryType[];
 }
 
-const Menu: React.FC<MenuProps> = ({ onAddToCart }) => {
+const Menu: React.FC<MenuProps> = ({ onAddToCart, menuData }) => {
   const [searchQuery, setSearchQuery] = useState('');
 
   const filteredMenu = useMemo(() => {
     if (!searchQuery.trim()) {
-      return MENU_DATA;
+      return menuData;
     }
 
     const lowercasedQuery = searchQuery.toLowerCase();
 
-    return MENU_DATA
+    return menuData
       .map(category => ({
         ...category,
         items: category.items.filter(item =>

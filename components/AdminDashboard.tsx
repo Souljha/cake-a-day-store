@@ -1,12 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { getAllOrders, updateOrderStatus, getOrdersByStatus, type FirebaseOrder, type OrderStatus } from '../services/firebaseService';
 import { getCurrentMonthSummary, COMMISSION_CONFIG } from '../services/commissionService';
+import MenuManager from './MenuManager';
+import { MenuCategory } from '../types';
 
 interface AdminDashboardProps {
   onClose: () => void;
+  onMenuUpdated: (categories: MenuCategory[]) => void;
 }
 
-const AdminDashboard: React.FC<AdminDashboardProps> = ({ onClose }) => {
+const AdminDashboard: React.FC<AdminDashboardProps> = ({ onClose, onMenuUpdated }) => {
+  const [activeTab, setActiveTab] = useState<'orders' | 'menu'>('orders');
   const [orders, setOrders] = useState<FirebaseOrder[]>([]);
   const [loading, setLoading] = useState(true);
   const [filterStatus, setFilterStatus] = useState<OrderStatus | 'all'>('all');
@@ -78,16 +82,6 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ onClose }) => {
     totalRevenue: orders.filter(o => o.status === 'delivered').reduce((sum, o) => sum + o.total, 0)
   };
 
-  if (loading) {
-    return (
-      <div className="fixed inset-0 bg-black bg-opacity-60 z-50 flex justify-center items-center">
-        <div className="bg-white rounded-2xl shadow-2xl p-8 w-full max-w-md text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-pink-600 mx-auto mb-4"></div>
-          <p>Loading orders...</p>
-        </div>
-      </div>
-    );
-  }
 
   return (
     <div className="fixed inset-0 bg-gray-100 z-50 overflow-y-auto">
@@ -109,10 +103,38 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ onClose }) => {
                 </svg>
               </button>
             </div>
+            {/* Tabs */}
+            <div className="flex gap-0 -mb-px">
+              <button
+                onClick={() => setActiveTab('orders')}
+                className={`px-6 py-3 text-sm font-medium border-b-2 transition-colors ${activeTab === 'orders' ? 'border-pink-600 text-pink-600' : 'border-transparent text-gray-500 hover:text-gray-700'}`}
+              >
+                Orders
+              </button>
+              <button
+                onClick={() => setActiveTab('menu')}
+                className={`px-6 py-3 text-sm font-medium border-b-2 transition-colors ${activeTab === 'menu' ? 'border-pink-600 text-pink-600' : 'border-transparent text-gray-500 hover:text-gray-700'}`}
+              >
+                Menu Editor
+              </button>
+            </div>
           </div>
         </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+
+          {/* Menu Editor Tab */}
+          {activeTab === 'menu' && (
+            <MenuManager onMenuUpdated={onMenuUpdated} />
+          )}
+
+          {/* Orders Tab */}
+          {activeTab === 'orders' && <>
+          {loading ? (
+            <div className="flex justify-center py-16">
+              <div className="animate-spin rounded-full h-10 w-10 border-b-2 border-pink-600" />
+            </div>
+          ) : <>
           {/* Stats Cards */}
           <div className="grid grid-cols-1 md:grid-cols-5 gap-6 mb-8">
             <div className="bg-white overflow-hidden shadow rounded-lg">
@@ -407,6 +429,8 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ onClose }) => {
               ))
             )}
           </div>
+          </>}
+          </>}
         </div>
       </div>
     </div>
